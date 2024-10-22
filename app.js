@@ -1,3 +1,4 @@
+// Function to fetch data from the JSON file
 function data(callback) {
   fetch('data.json')
     .then(response => response.json())
@@ -9,63 +10,40 @@ function data(callback) {
     });
 }
 
-const card = document.getElementById('card');
-const recoCard = document.getElementById('recoCard')
+// Fetch data and create product cards
+document.addEventListener('DOMContentLoaded', () => {
+  data((products) => {
+    const newArrival = products.slice(-4);  // Get the last 4 products
+    const reco = products.slice(0, 8);  // Get the first 8 products
+    
+    // Check if 'card' container exists before creating New Arrival cards
+    const card = document.getElementById('card');
+    if (card) {
+      newArrival.forEach(product => {
+        createProductCard(product, card);  // Pass the card element to the function
+      });
+    }
 
-// for new arrival
-function createProductCard(product) {
-    const cardDiv = document.createElement("div");
-    cardDiv.className = 'bg-white shadow rounded overflow-hidden group';
+    // Check if 'recoCard' container exists before creating Recommended cards
+    const recoCard = document.getElementById('recoCard');
+    if (recoCard) {
+      reco.forEach(product => {
+        createProductCard(product, recoCard);  // Pass the recoCard element to the function
+      });
+    }
 
-    const imgContainer = document.createElement('div');
-    imgContainer.className = 'relative';
+    // Check if 'allCard' container exists before creating All Product cards
+    const allCard = document.getElementById('allCard');
+    if (allCard) {
+      products.forEach(product => {
+        createProductCard(product, allCard);  // Pass the allCard element to the function
+      });
+    }
+  });
+});
 
-    const img = document.createElement('img');
-    img.src = product.img;  // Use product image from the JSON
-    img.alt = product.name;  // Use product name for alt text
-    img.className = 'w-full';
-
-    imgContainer.appendChild(img);
-    cardDiv.appendChild(imgContainer);
-
-    const descriptionDiv = document.createElement('div');
-    descriptionDiv.className = 'pt-4 pb-3 px-4';
-
-    const productTitle = document.createElement('h4');
-    productTitle.className = 'uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition';
-    productTitle.textContent = product.name;  // Use product name from the JSON
-
-    const priceDiv = document.createElement('div');
-    priceDiv.className = 'flex items-baseline mb-1 space-x-2';
-
-    const price = document.createElement('p');
-    price.className = 'text-xl text-primary font-semibold';
-    price.textContent = `$${product.newPrice}`;  // Use the new price from the JSON
-
-    const oldPrice = document.createElement('p');
-    oldPrice.className = 'text-sm text-gray-400 line-through';
-    oldPrice.textContent = `$${product.oldPrice}`;  // Use the old price from the JSON
-
-    priceDiv.appendChild(price);
-    priceDiv.appendChild(oldPrice);
-
-    descriptionDiv.appendChild(productTitle);
-    descriptionDiv.appendChild(priceDiv);
-    cardDiv.appendChild(descriptionDiv);
-
-    const addToCartBtn = document.createElement('a');
-    addToCartBtn.href = '#';
-    addToCartBtn.className = 'block w-full py-1 text-center text-white bg-[#fe3c57] border border-primary rounded-b hover:bg-transparent hover:text-[#fe3c57] transition';
-    addToCartBtn.textContent = 'Add to cart';
-
-    cardDiv.appendChild(addToCartBtn);
-
-    // Append the card to the container
-    card.appendChild(cardDiv);
-}
-
-// for recomended
-function recomendedCard(product) {
+// Function to create a product card for any type of card container
+function createProductCard(product, container) {
   const cardDiv = document.createElement("div");
   cardDiv.className = 'bg-white shadow rounded overflow-hidden group';
 
@@ -73,8 +51,8 @@ function recomendedCard(product) {
   imgContainer.className = 'relative';
 
   const img = document.createElement('img');
-  img.src = product.img;  // Use product image from the JSON
-  img.alt = product.name;  // Use product name for alt text
+  img.src = product.img;
+  img.alt = product.name;
   img.className = 'w-full';
 
   imgContainer.appendChild(img);
@@ -85,18 +63,18 @@ function recomendedCard(product) {
 
   const productTitle = document.createElement('h4');
   productTitle.className = 'uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition';
-  productTitle.textContent = product.name;  // Use product name from the JSON
+  productTitle.textContent = product.name;
 
   const priceDiv = document.createElement('div');
   priceDiv.className = 'flex items-baseline mb-1 space-x-2';
 
   const price = document.createElement('p');
   price.className = 'text-xl text-primary font-semibold';
-  price.textContent = `$${product.newPrice}`;  // Use the new price from the JSON
+  price.textContent = `$${product.newPrice}`;
 
   const oldPrice = document.createElement('p');
   oldPrice.className = 'text-sm text-gray-400 line-through';
-  oldPrice.textContent = `$${product.oldPrice}`;  // Use the old price from the JSON
+  oldPrice.textContent = `$${product.oldPrice}`;
 
   priceDiv.appendChild(price);
   priceDiv.appendChild(oldPrice);
@@ -112,19 +90,6 @@ function recomendedCard(product) {
 
   cardDiv.appendChild(addToCartBtn);
 
-  // Append the card to the container
-  recoCard.appendChild(cardDiv);
+  // Append the card to the passed container
+  container.appendChild(cardDiv);
 }
-// Fetch data and create product cards
-document.addEventListener('DOMContentLoaded', ()=>{
-  data((products) => {
-    const newArrival = products.slice(-4)
-    const reco = products.slice(0, 8)
-    newArrival.forEach(product => {
-      createProductCard(product);
-    });
-    reco.forEach(product => {
-      recomendedCard(product);
-    });
-  });  
-})
