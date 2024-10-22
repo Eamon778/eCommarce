@@ -10,6 +10,25 @@ function data(callback) {
     });
 }
 
+// Add items to cart, increment quantity if the product already exists
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Check if the product already exists in the cart
+  let existingProduct = cart.find(item => item.id === product.id);
+  
+  if (existingProduct) {
+      // If the product exists, increase the quantity
+      existingProduct.quantity += 1;
+  } else {
+      // If the product doesn't exist, add it to the cart with quantity 1
+      product.quantity = 1; // Initialize quantity field
+      cart.push(product);
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));  // Save the updated cart to localStorage
+}
+
 // Fetch data and create product cards
 document.addEventListener('DOMContentLoaded', () => {
   data((products) => {
@@ -58,6 +77,12 @@ function createProductCard(product, container) {
   imgContainer.appendChild(img);
   cardDiv.appendChild(imgContainer);
 
+  // Create the "Added to cart" message element
+  const addedMessage = document.createElement('div');
+  addedMessage.className = 'absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg opacity-0 transition-opacity duration-300';
+  addedMessage.textContent = 'Added to cart';
+  imgContainer.appendChild(addedMessage); // Append the message to the imgContainer
+
   const descriptionDiv = document.createElement('div');
   descriptionDiv.className = 'pt-4 pb-3 px-4';
 
@@ -73,7 +98,7 @@ function createProductCard(product, container) {
   price.textContent = `$${product.newPrice}`;
 
   const oldPrice = document.createElement('p');
-  oldPrice.className = 'text-sm text-gray-400 line-through';
+  oldPrice.className = 'text-sm text-[red] line-through';
   oldPrice.textContent = `$${product.oldPrice}`;
 
   priceDiv.appendChild(price);
@@ -84,9 +109,21 @@ function createProductCard(product, container) {
   cardDiv.appendChild(descriptionDiv);
 
   const addToCartBtn = document.createElement('a');
-  addToCartBtn.href = '#';
-  addToCartBtn.className = 'block w-full py-1 text-center text-white bg-[#fe3c57] border border-primary rounded-b hover:bg-transparent hover:text-[#fe3c57] transition';
+  addToCartBtn.className = 'block w-full py-1 text-center cursor-pointer text-white bg-[#fe3c57] border border-primary rounded-b hover:bg-transparent hover:text-[#fe3c57] transition';
   addToCartBtn.textContent = 'Add to cart';
+  addToCartBtn.addEventListener('click', () => {
+    addToCart(product);
+
+    // Show the "Added to cart" message
+    addedMessage.classList.remove('opacity-0');
+    addedMessage.classList.add('opacity-100');
+
+    // Hide the message after a short delay
+    setTimeout(() => {
+      addedMessage.classList.remove('opacity-100');
+      addedMessage.classList.add('opacity-0');
+    }, 1000); // Change the duration as needed
+  });
 
   cardDiv.appendChild(addToCartBtn);
 

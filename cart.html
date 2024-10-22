@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body id="shopbody">
+    <body>
         <!-- header -->
         <header class="py-4 shadow-sm bg-white">
             <!-- navbar -->
@@ -25,21 +25,17 @@
                         <div class="flex items-center text-lg gap-3 capitalize">
                             <a href="index.html" class="text-black hover:text-white transition">Home</a>
                         </div>
-                        <a href="cart.html" class="text-black text-lg font-bold hover:text-white transition">Cart</a>
                     </div>
                 </div>
             </nav>
             <!-- ./navbar -->
         </header>
         <!-- header -->
-         <!-- product -->
-        <div class="container mx-auto pb-16">
-            <div id="allCard" class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- js will add card here -->
+         <div class="container mx-auto">
+            <div id="cart-container">
+
             </div>
-        </div>
-        <!-- ./product -->
-         <!-- copyright -->
+         </div>
         <div class="bg-gray-800 py-4">
             <div class="container mx-auto flex items-center justify-between">
                 <p class="text-white">&copy; TailCommerce - All Right Reserved</p>
@@ -48,8 +44,8 @@
                 </div>
             </div>
         </div>
-        <!-- ./copyright -->
 
-        <script src="app.js"></script>
+
+        <script src="cart.js"></script>
     </body>
 </html>

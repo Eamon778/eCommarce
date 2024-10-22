@@ -9,78 +9,78 @@
     {
         "id": 2,
         "name": "bed king size",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 57.30,
+        "newPrice": 49.00,
         "img": "images/products/product4.jpg"
     },
     {
         "id": 3,
         "name": "Couple sofa",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 63.5,
+        "newPrice": 50.00,
         "img": "images/products/product2.jpg"
     },
     {
         "id": 4,
         "name": "mattrass x",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 99.99,
+        "newPrice": 89.00,
         "img": "images/products/product3.jpg"
     },
     {
         "id": 5,
         "name": "White dining table",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 123.44,
+        "newPrice": 109.00,
         "img": "images/products/product5.jpg"
     },
     {
         "id": 6,
         "name": "Patio Chair",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 23.40,
+        "newPrice": 18.30,
         "img": "images/products/product6.jpg"
     },
     {
         "id": 7,
         "name": "Kena Becha",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 79.99,
+        "newPrice": 66.00,
         "img": "images/products/product7.jpg"
     },
     {
         "id": 8,
         "name": "Amira chair",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 88.30,
+        "newPrice": 80.00,
         "img": "images/products/product8.jpg"
     },
     {
         "id": 9,
         "name": "Retro Accent chair",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 121.43,
+        "newPrice": 110.33,
         "img": "images/products/product9.jpg"
     },
     {
         "id": 10,
         "name": "Bianco Fabric Chair",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 34.60,
+        "newPrice": 30,
         "img": "images/products/product10.jpg"
     },
     {
         "id": 11,
         "name": "Luxury Bed",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 51.3,
+        "newPrice": 40.00,
         "img": "images/products/product11.jpg"
     },
     {
         "id": 12,
         "name": "Gordon Round Stand",
-        "oldPrice": 55.3,
-        "newPrice": 45.00,
+        "oldPrice": 86.3,
+        "newPrice": 70.00,
         "img": "images/products/product12.jpg"
     }
 ]
