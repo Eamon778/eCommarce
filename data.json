@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "chair",
+        "oldPrice": 55.3,
+        "newPrice": 45.00,
+        "img": "images/products/product1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "chair",
+        "oldPrice": 55.3,
+        "newPrice": 45.00,
+        "img": "images/products/product1.jpg"
+    },
+    {
+        "id": 3,
+        "name": "chair",
+        "oldPrice": 55.3,
+        "newPrice": 45.00,
+        "img": "images/products/product1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "chair",
+        "oldPrice": 55.3,
+        "newPrice": 45.00,
+        "img": "images/products/product1.jpg"
+    },
+    {
+        "id": 5,
+        "name": "chair",
+        "oldPrice": 55.3,
+        "newPrice": 45.00,
+        "img": "images/products/product1.jpg"
+    },
+    {
+        "id": 6,
+        "name": "chair",
+        "oldPrice": 55.3,
+        "newPrice": 45.00,
+        "img": "images/products/product1.jpg"
+    }
+]
