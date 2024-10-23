@@ -14,7 +14,7 @@ function loadCartItems() {
     // Iterate through the cart and create product cards
     cart.forEach((product, index) => {
         const cardDiv = document.createElement('div');
-        cardDiv.className = 'bg-white border rounded mb-3 flex items-center justify-between overflow-hidden group p-4';
+        cardDiv.className = 'bg-white border rounded mb-3 flex items-center justify-between overflow-hidden group p-1';
 
         const img = document.createElement('img');
         img.src = product.img;
@@ -76,6 +76,8 @@ function loadCartItems() {
     buyButton.addEventListener('click', function() {
         // Implement buy functionality here
         alert('Proceeding to checkout...');
+        localStorage.removeItem('cart');  // Clear cart from local storage
+        loadCartItems();  // Refresh cart to show it's empty
     });
 
     const totalContainer = document.createElement('div')
